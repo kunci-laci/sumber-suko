@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profil Dusun — Nama Dusun</title>
+  <meta name="description" content="Template website profil dusun: tentang, data demografi, acara, galeri, kontak" />
+  <style>
+    /* Reset ringkas */
+    :root{--accent:#0ea5a4;--dark:#0f172a;--muted:#64748b}
+    *{box-sizing:border-box}
+    body{font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.5;margin:0;color:#0f172a}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    /* Header */
+    .site-header{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:linear-gradient(90deg,rgba(14,165,164,0.06),transparent);position:sticky;top:0;backdrop-filter:blur(6px);z-index:40}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:8px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav{display:flex;gap:14px;align-items:center}
+    .btn{padding:8px 12px;border-radius:8px;border:1px solid rgba(15,23,42,0.06);background:white;cursor:pointer}
+    .btn-primary{background:var(--accent);color:white;border:none}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;padding:48px 24px;align-items:center}
+    .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:24px}
+    .hero h1{font-size:28px;margin:0}
+    .hero p{color:var(--muted);margin:0}
+    .cta-group{display:flex;gap:12px}
+
+    /* Sections */
+    .container{max-width:1100px;margin:0 auto;padding:36px 24px}
+    .grid{display:grid;gap:18px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .card{background:white;border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+    .stats{display:flex;gap:12px;flex-wrap:wrap}
+    .stat{flex:1;min-width:160px;padding:14px;border-radius:8px;background:linear-gradient(180deg,#fff,#f7fafc)}
+
+    /* Events & list */
+    .list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+    .list li{display:flex;gap:14px;align-items:center}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+
+    /* Footer */
+    footer{padding:24px;background:#0b1220;color:white}
+
+    /* Responsive */
+    @media (min-width:768px){
+      .hero{padding:64px 24px}
+      .hero-inner{grid-template-columns:1fr 420px}
+      .hero h1{font-size:40px}
+      .gallery img{height:200px}
+    }
+
+    @media (max-width:767px){
+      nav{display:none}
+      .mobile-nav-toggle{display:inline-flex}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .cols-3{grid-template-columns:1fr}
+    }
+    .mobile-nav-toggle{display:none;border:none;background:transparent;cursor:pointer}
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .row{display:flex;gap:12px;align-items:center}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">ND</div>
+      <div>
+        <div style="font-weight:700">Dusun Nama</div>
+        <div style="font-size:12px;color:var(--muted)">Desa • Kecamatan • Kabupaten</div>
+      </div>
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#about" class="muted">Tentang</a>
+      <a href="#data" class="muted">Data</a>
+      <a href="#kegiatan" class="muted">Kegiatan</a>
+      <a href="#galeri" class="muted">Galeri</a>
+      <a href="#kontak" class="muted">Kontak</a>
+    </nav>
+
+    <div class="row">
+      <button class="btn">Peta</button>
+      <button class="btn btn-primary">Hubungi</button>
+      <button class="mobile-nav-toggle" aria-label="Buka menu" onclick="toggleMobileNav()">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner container">
+        <div>
+          <h1>Selamat datang di Profil Dusun Nama</h1>
+          <p class="muted">Situs resmi profil dusun untuk menyampaikan informasi, data demografi, kegiatan, dan layanan publik kepada warga dan pengunjung.</p>
+
+          <div style="margin-top:18px" class="cta-group">
+            <a href="#kegiatan" class="btn btn-primary">Lihat Kegiatan</a>
+            <a href="#galeri" class="btn">Galeri Foto</a>
+          </div>
+
+          <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap">
+            <div class="card" style="min-width:200px"> 
+              <div style="font-size:12px;color:var(--muted)">Kepala Dusun</div>
+              <div style="font-weight:700">Nama Kepala</div>
+            </div>
+            <div class="card" style="min-width:200px">
+              <div style="font-size:12px;color:var(--muted)">Jumlah KK</div>
+              <div style="font-weight:700">123 KK</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card">
+          <h3 style="margin-top:0">Info Singkat</h3>
+          <p class="muted" style="margin:0 0 12px 0">Lokasi: Desa • Kecamatan • Kabupaten</p>
+          <p style="margin:0 0 12px 0">Dusun Nama memiliki lingkungan yang asri, akses jalan desa, dan sejumlah fasilitas umum untuk mendukung kegiatan warga.</p>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <a href="#kontak" class="btn">Laporkan</a>
+            <a href="#data" class="btn">Lihat Data</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Tentang -->
+    <section id="about" class="container">
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Tentang Dusun</h3>
+          <p class="muted">Tuliskan sejarah singkat, asal-usul nama dusun, batas-batas wilayah, dan kegiatan khas lokal (mis. upacara adat, pertanian, kerajinan).</p>
+        </div>
+
+        <div class="card">
+          <h3>Visi & Misi</h3>
+          <ul class="muted">
+            <li>Visi: Mewujudkan dusun yang sejahtera dan mandiri.</li>
+            <li>Misi: Pemberdayaan warga, peningkatan infrastruktur, dan pelestarian budaya.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Kontak Penting</h3>
+          <p class="muted">Kepala Dusun: 0812-xxxx-xxxx<br>Sekretariat: alamat dusun, desa, kecamatan</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Data demografi -->
+    <section id="data" class="container">
+      <div class="card">
+        <h3>Data Demografi & Statistik</h3>
+        <div class="stats" style="margin-top:12px">
+          <div class="stat"><div style="font-size:14px;color:var(--muted)">Total Penduduk</div><div style="font-weight:700;font-size:20px">850</div></div>
+          <div class="stat"><div style="font-size:14px;color:var(--muted)">Laki-laki</div><div style="font-weight:700;font-size:20px">430</div></div>
+          <div class="stat"><div style="font-size:14px;color:var(--muted)">Perempuan</div><div style="font-weight:700;font-size:20px">420</div></div>
+        </div>
+
+        <div style="margin-top:18px" class="muted">Tambahkan tabel data penduduk per RT, pekerjaan, pendidikan, dan fasilitas di sini (bisa berupa export CSV atau tampilan tabel interaktif).</div>
+      </div>
+    </section>
+
+    <!-- Kegiatan -->
+    <section id="kegiatan" class="container">
+      <div class="grid" style="grid-template-columns:1fr 340px">
+        <div class="card">
+          <h3>Kegiatan & Pengumuman</h3>
+          <ul class="list" style="margin-top:12px">
+            <li>
+              <div style="flex:1">
+                <div style="font-weight:700">Pelatihan Pertanian Organik</div>
+                <div class="muted" style="font-size:13px">12 Desember 2025 • Balai Dusun</div>
+              </div>
+            </li>
+            <li>
+              <div style="flex:1">
+                <div style="font-weight:700">Rapat RT/RW</div>
+                <div class="muted" style="font-size:13px">02 Januari 2026 • 19.00 WIB</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="card">
+          <h4>Jadwal Layanan</h4>
+          <p class="muted" style="margin:0">Posyandu: Setiap Jumat • 09.00 — 11.00</p>
+          <p class="muted" style="margin:0.5rem 0 0 0">Pendaftaran KTP & KK: Hubungi Sekretariat</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Galeri -->
+    <section id="galeri" class="container">
+      <h3>Galeri Foto</h3>
+      <div class="gallery" style="margin-top:12px">
+        <img src="https://picsum.photos/seed/1/800/600" alt="Foto 1" />
+        <img src="https://picsum.photos/seed/2/800/600" alt="Foto 2" />
+        <img src="https://picsum.photos/seed/3/800/600" alt="Foto 3" />
+        <img src="https://picsum.photos/seed/4/800/600" alt="Foto 4" />
+        <img src="https://picsum.photos/seed/5/800/600" alt="Foto 5" />
+        <img src="https://picsum.photos/seed/6/800/600" alt="Foto 6" />
+      </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak" class="container">
+      <div class="grid" style="grid-template-columns:1fr 360px">
+        <div class="card">
+          <h3>Hubungi Kami</h3>
+          <form onsubmit="handleContact(event)" style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+            <input type="text" id="name" placeholder="Nama" required style="padding:10px;border-radius:8px;border:1px solid #e6eef0">
+            <input type="email" id="email" placeholder="Email (opsional)" style="padding:10px;border-radius:8px;border:1px solid #e6eef0">
+            <textarea id="message" placeholder="Pesan atau laporan" rows="5" required style="padding:10px;border-radius:8px;border:1px solid #e6eef0"></textarea>
+            <div style="display:flex;gap:8px">
+              <button type="submit" class="btn btn-primary">Kirim</button>
+              <button type="reset" class="btn">Bersihkan</button>
+            </div>
+            <div id="contact-result" style="font-size:13px;color:var(--muted)"></div>
+          </form>
+        </div>
+
+        <aside class="card">
+          <h4>Lokasi</h4>
+          <div style="width:100%;height:220px;background:#eef5f5;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)">Peta (Google Maps / OpenStreetMap)</div>
+
+          <h4 style="margin-top:12px">Jam Kerja</h4>
+          <p class="muted" style="margin:0">Senin — Jumat: 08.00 — 15.00</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;color:inherit">
+      <div>
+        <div style="font-weight:700">Dusun Nama</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.8)">© 2025. Dibuat untuk dokumentasi profil dusun.</div>
+      </div>
+
+      <div style="font-size:13px;color:rgba(255,255,255,0.8)">Alamat sekretariat • Kontak: 0812-xxxx-xxxx</div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav (sederhana)
+    function toggleMobileNav(){
+      const nav = document.querySelector('nav');
+      if(!nav) return;
+      if(nav.style.display === 'flex') nav.style.display = 'none';
+      else nav.style.display = 'flex';
+      nav.style.flexDirection = 'column';
+      nav.style.position = 'absolute';
+      nav.style.right = '18px';
+      nav.style.top = '70px';
+      nav.style.background = 'white';
+      nav.style.padding = '12px';
+      nav.style.boxShadow = '0 12px 36px rgba(2,6,23,0.12)';
+      nav.style.borderRadius = '12px';
+    }
+
+    // Smooth scroll untuk anchor
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+
+    // Simulasi pengiriman form
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+      const result = document.getElementById('contact-result');
+      result.textContent = 'Terima kasih, '+name+'. Pesan Anda telah dicatat (simulasi).';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
